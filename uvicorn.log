@@ -1,0 +1,616 @@
+INFO:     Will watch for changes in these directories: ['/Users/freedom/CCL/python-beep']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [86606] using StatReload
+INFO:     Started server process [86608]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:57787 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57903 - "POST /find-beeps/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57963 - "POST /find-beeps/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58299 - "POST /find-beeps/ HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [86608]
+INFO:     Started server process [89467]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:58575 - "POST /find-template/?threshold=0.6&min_separation_s=0.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [89467]
+INFO:     Started server process [90114]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [90114]
+INFO:     Started server process [90845]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:59147 - "POST /find-template/?raw=true&threshold=0.9&min_separation_s=0.5&sr_target=11025 HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [90845]
+INFO:     Started server process [91322]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:59751 - "POST /find-template/?raw=true&threshold=0.7&min_separation_s=0.4&sr_target=22050 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59937 - "POST /find-template/?raw=true&threshold=0.55&min_separation_s=0.3&sr_target=22050 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59939 - "POST /find-template/?raw=true&threshold=0.55&min_separation_s=0.35&sr_target=22050 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59940 - "POST /find-template/?raw=true&threshold=0.55&min_separation_s=0.4&sr_target=22050 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59942 - "POST /find-template/?raw=true&threshold=0.55&min_separation_s=0.5&sr_target=22050 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59943 - "POST /find-template/?raw=true&threshold=0.55&min_separation_s=0.6&sr_target=22050 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59944 - "POST /find-template/?raw=true&threshold=0.6&min_separation_s=0.3&sr_target=22050 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59945 - "POST /find-template/?raw=true&threshold=0.6&min_separation_s=0.35&sr_target=22050 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59946 - "POST /find-template/?raw=true&threshold=0.6&min_separation_s=0.4&sr_target=22050 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59947 - "POST /find-template/?raw=true&threshold=0.6&min_separation_s=0.5&sr_target=22050 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59948 - "POST /find-template/?raw=true&threshold=0.6&min_separation_s=0.6&sr_target=22050 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59949 - "POST /find-template/?raw=true&threshold=0.65&min_separation_s=0.3&sr_target=22050 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59950 - "POST /find-template/?raw=true&threshold=0.65&min_separation_s=0.35&sr_target=22050 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59952 - "POST /find-template/?raw=true&threshold=0.65&min_separation_s=0.4&sr_target=22050 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59953 - "POST /find-template/?raw=true&threshold=0.65&min_separation_s=0.5&sr_target=22050 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59955 - "POST /find-template/?raw=true&threshold=0.65&min_separation_s=0.6&sr_target=22050 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59956 - "POST /find-template/?raw=true&threshold=0.7&min_separation_s=0.3&sr_target=22050 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59957 - "POST /find-template/?raw=true&threshold=0.7&min_separation_s=0.35&sr_target=22050 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59959 - "POST /find-template/?raw=true&threshold=0.7&min_separation_s=0.4&sr_target=22050 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59960 - "POST /find-template/?raw=true&threshold=0.7&min_separation_s=0.5&sr_target=22050 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59961 - "POST /find-template/?raw=true&threshold=0.7&min_separation_s=0.6&sr_target=22050 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59962 - "POST /find-template/?raw=true&threshold=0.75&min_separation_s=0.3&sr_target=22050 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59963 - "POST /find-template/?raw=true&threshold=0.75&min_separation_s=0.35&sr_target=22050 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59964 - "POST /find-template/?raw=true&threshold=0.75&min_separation_s=0.4&sr_target=22050 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59967 - "POST /find-template/?raw=true&threshold=0.75&min_separation_s=0.5&sr_target=22050 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59968 - "POST /find-template/?raw=true&threshold=0.75&min_separation_s=0.6&sr_target=22050 HTTP/1.1" 200 OK
+/Users/freedom/CCL/python-beep/main.py:179: RuntimeWarning: invalid value encountered in sqrt
+  denom = np.sqrt(target_energy * tmpl_energy) + 1e-8
+INFO:     127.0.0.1:59981 - "POST /find-template/?raw=false&threshold=0.7&min_separation_s=1.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59983 - "POST /find-template/?raw=false&threshold=0.7&min_separation_s=2.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59984 - "POST /find-template/?raw=false&threshold=0.7&min_separation_s=3.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59985 - "POST /find-template/?raw=false&threshold=0.7&min_separation_s=4.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59986 - "POST /find-template/?raw=false&threshold=0.7&min_separation_s=5.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59987 - "POST /find-template/?raw=false&threshold=0.75&min_separation_s=1.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59988 - "POST /find-template/?raw=false&threshold=0.75&min_separation_s=2.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59989 - "POST /find-template/?raw=false&threshold=0.75&min_separation_s=3.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59990 - "POST /find-template/?raw=false&threshold=0.75&min_separation_s=4.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59991 - "POST /find-template/?raw=false&threshold=0.75&min_separation_s=5.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59992 - "POST /find-template/?raw=false&threshold=0.8&min_separation_s=1.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59993 - "POST /find-template/?raw=false&threshold=0.8&min_separation_s=2.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59994 - "POST /find-template/?raw=false&threshold=0.8&min_separation_s=3.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59995 - "POST /find-template/?raw=false&threshold=0.8&min_separation_s=4.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59996 - "POST /find-template/?raw=false&threshold=0.8&min_separation_s=5.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59997 - "POST /find-template/?raw=false&threshold=0.85&min_separation_s=1.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59998 - "POST /find-template/?raw=false&threshold=0.85&min_separation_s=2.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59999 - "POST /find-template/?raw=false&threshold=0.85&min_separation_s=3.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60000 - "POST /find-template/?raw=false&threshold=0.85&min_separation_s=4.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60001 - "POST /find-template/?raw=false&threshold=0.85&min_separation_s=5.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60002 - "POST /find-template/?raw=false&threshold=0.9&min_separation_s=1.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60003 - "POST /find-template/?raw=false&threshold=0.9&min_separation_s=2.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60005 - "POST /find-template/?raw=false&threshold=0.9&min_separation_s=3.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60006 - "POST /find-template/?raw=false&threshold=0.9&min_separation_s=4.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60008 - "POST /find-template/?raw=false&threshold=0.9&min_separation_s=5.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60009 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60010 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=2.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60011 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=3.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60012 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=4.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60013 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=5.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60015 - "POST /find-template/?raw=false&threshold=0.95&min_separation_s=1.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60017 - "POST /find-template/?raw=false&threshold=0.95&min_separation_s=2.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60019 - "POST /find-template/?raw=false&threshold=0.95&min_separation_s=3.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60020 - "POST /find-template/?raw=false&threshold=0.95&min_separation_s=4.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60022 - "POST /find-template/?raw=false&threshold=0.95&min_separation_s=5.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60042 - "POST /find-template/?raw=false&threshold=0.88&min_separation_s=1.25&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60043 - "POST /find-template/?raw=false&threshold=0.88&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60044 - "POST /find-template/?raw=false&threshold=0.88&min_separation_s=1.75&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60046 - "POST /find-template/?raw=false&threshold=0.88&min_separation_s=2.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60048 - "POST /find-template/?raw=false&threshold=0.88&min_separation_s=2.25&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60050 - "POST /find-template/?raw=false&threshold=0.88&min_separation_s=2.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60051 - "POST /find-template/?raw=false&threshold=0.88&min_separation_s=2.75&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60053 - "POST /find-template/?raw=false&threshold=0.88&min_separation_s=3.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60054 - "POST /find-template/?raw=false&threshold=0.89&min_separation_s=1.25&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60059 - "POST /find-template/?raw=false&threshold=0.89&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60063 - "POST /find-template/?raw=false&threshold=0.89&min_separation_s=1.75&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60064 - "POST /find-template/?raw=false&threshold=0.89&min_separation_s=2.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60066 - "POST /find-template/?raw=false&threshold=0.89&min_separation_s=2.25&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60067 - "POST /find-template/?raw=false&threshold=0.89&min_separation_s=2.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60072 - "POST /find-template/?raw=false&threshold=0.89&min_separation_s=2.75&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60073 - "POST /find-template/?raw=false&threshold=0.89&min_separation_s=3.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60075 - "POST /find-template/?raw=false&threshold=0.9&min_separation_s=1.25&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60076 - "POST /find-template/?raw=false&threshold=0.9&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60077 - "POST /find-template/?raw=false&threshold=0.9&min_separation_s=1.75&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60080 - "POST /find-template/?raw=false&threshold=0.9&min_separation_s=2.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60081 - "POST /find-template/?raw=false&threshold=0.9&min_separation_s=2.25&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60082 - "POST /find-template/?raw=false&threshold=0.9&min_separation_s=2.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60083 - "POST /find-template/?raw=false&threshold=0.9&min_separation_s=2.75&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60084 - "POST /find-template/?raw=false&threshold=0.9&min_separation_s=3.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60085 - "POST /find-template/?raw=false&threshold=0.91&min_separation_s=1.25&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60087 - "POST /find-template/?raw=false&threshold=0.91&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60089 - "POST /find-template/?raw=false&threshold=0.91&min_separation_s=1.75&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60090 - "POST /find-template/?raw=false&threshold=0.91&min_separation_s=2.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60091 - "POST /find-template/?raw=false&threshold=0.91&min_separation_s=2.25&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60092 - "POST /find-template/?raw=false&threshold=0.91&min_separation_s=2.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60093 - "POST /find-template/?raw=false&threshold=0.91&min_separation_s=2.75&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60094 - "POST /find-template/?raw=false&threshold=0.91&min_separation_s=3.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60095 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.25&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60096 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60097 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.75&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60098 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=2.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60101 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=2.25&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60103 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=2.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60105 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=2.75&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60106 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=3.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60107 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.25&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60108 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60109 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.75&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60111 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=2.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60112 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=2.25&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60113 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=2.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60115 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=2.75&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60116 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=3.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60117 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=1.25&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60120 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60121 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=1.75&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60122 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=2.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60123 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=2.25&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60124 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=2.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60126 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=2.75&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60127 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=3.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60128 - "POST /find-template/?raw=false&threshold=0.95&min_separation_s=1.25&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60129 - "POST /find-template/?raw=false&threshold=0.95&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60130 - "POST /find-template/?raw=false&threshold=0.95&min_separation_s=1.75&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60131 - "POST /find-template/?raw=false&threshold=0.95&min_separation_s=2.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60132 - "POST /find-template/?raw=false&threshold=0.95&min_separation_s=2.25&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60133 - "POST /find-template/?raw=false&threshold=0.95&min_separation_s=2.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60135 - "POST /find-template/?raw=false&threshold=0.95&min_separation_s=2.75&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60136 - "POST /find-template/?raw=false&threshold=0.95&min_separation_s=3.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60137 - "POST /find-template/?raw=false&threshold=0.88&min_separation_s=1.25&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60138 - "POST /find-template/?raw=false&threshold=0.88&min_separation_s=1.5&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60140 - "POST /find-template/?raw=false&threshold=0.88&min_separation_s=1.75&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60141 - "POST /find-template/?raw=false&threshold=0.88&min_separation_s=2.0&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60142 - "POST /find-template/?raw=false&threshold=0.88&min_separation_s=2.25&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60143 - "POST /find-template/?raw=false&threshold=0.88&min_separation_s=2.5&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60144 - "POST /find-template/?raw=false&threshold=0.88&min_separation_s=2.75&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60145 - "POST /find-template/?raw=false&threshold=0.88&min_separation_s=3.0&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60146 - "POST /find-template/?raw=false&threshold=0.89&min_separation_s=1.25&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60148 - "POST /find-template/?raw=false&threshold=0.89&min_separation_s=1.5&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60149 - "POST /find-template/?raw=false&threshold=0.89&min_separation_s=1.75&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60150 - "POST /find-template/?raw=false&threshold=0.89&min_separation_s=2.0&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60151 - "POST /find-template/?raw=false&threshold=0.89&min_separation_s=2.25&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60152 - "POST /find-template/?raw=false&threshold=0.89&min_separation_s=2.5&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60153 - "POST /find-template/?raw=false&threshold=0.89&min_separation_s=2.75&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60155 - "POST /find-template/?raw=false&threshold=0.89&min_separation_s=3.0&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60157 - "POST /find-template/?raw=false&threshold=0.9&min_separation_s=1.25&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60158 - "POST /find-template/?raw=false&threshold=0.9&min_separation_s=1.5&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60160 - "POST /find-template/?raw=false&threshold=0.9&min_separation_s=1.75&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60162 - "POST /find-template/?raw=false&threshold=0.9&min_separation_s=2.0&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60164 - "POST /find-template/?raw=false&threshold=0.9&min_separation_s=2.25&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60165 - "POST /find-template/?raw=false&threshold=0.9&min_separation_s=2.5&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60166 - "POST /find-template/?raw=false&threshold=0.9&min_separation_s=2.75&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60167 - "POST /find-template/?raw=false&threshold=0.9&min_separation_s=3.0&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60168 - "POST /find-template/?raw=false&threshold=0.91&min_separation_s=1.25&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60169 - "POST /find-template/?raw=false&threshold=0.91&min_separation_s=1.5&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60170 - "POST /find-template/?raw=false&threshold=0.91&min_separation_s=1.75&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60171 - "POST /find-template/?raw=false&threshold=0.91&min_separation_s=2.0&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60172 - "POST /find-template/?raw=false&threshold=0.91&min_separation_s=2.25&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60173 - "POST /find-template/?raw=false&threshold=0.91&min_separation_s=2.5&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60174 - "POST /find-template/?raw=false&threshold=0.91&min_separation_s=2.75&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60175 - "POST /find-template/?raw=false&threshold=0.91&min_separation_s=3.0&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60177 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.25&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60178 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.5&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60179 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.75&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60180 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=2.0&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60181 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=2.25&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60182 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=2.5&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60183 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=2.75&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60184 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=3.0&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60185 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.25&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60186 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.5&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60187 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.75&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60188 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=2.0&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60189 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=2.25&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60191 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=2.5&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60192 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=2.75&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60193 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=3.0&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60195 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=1.25&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60197 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=1.5&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60199 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=1.75&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60200 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=2.0&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60207 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=2.25&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60208 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=2.5&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60210 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=2.75&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60211 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=3.0&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60212 - "POST /find-template/?raw=false&threshold=0.95&min_separation_s=1.25&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60213 - "POST /find-template/?raw=false&threshold=0.95&min_separation_s=1.5&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60215 - "POST /find-template/?raw=false&threshold=0.95&min_separation_s=1.75&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60217 - "POST /find-template/?raw=false&threshold=0.95&min_separation_s=2.0&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60219 - "POST /find-template/?raw=false&threshold=0.95&min_separation_s=2.25&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60220 - "POST /find-template/?raw=false&threshold=0.95&min_separation_s=2.5&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60222 - "POST /find-template/?raw=false&threshold=0.95&min_separation_s=2.75&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60224 - "POST /find-template/?raw=false&threshold=0.95&min_separation_s=3.0&sr_target=11025&band_low=1180&band_high=1220&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60366 - "POST /find-template/?raw=false&threshold=0.9&min_separation_s=1.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60368 - "POST /find-template/?raw=false&threshold=0.9&min_separation_s=1.25&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60370 - "POST /find-template/?raw=false&threshold=0.9&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60375 - "POST /find-template/?raw=false&threshold=0.9&min_separation_s=1.75&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60376 - "POST /find-template/?raw=false&threshold=0.9&min_separation_s=2.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60378 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60381 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.25&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60385 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60386 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.75&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60387 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=2.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60388 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60389 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.25&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60393 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60394 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.75&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60400 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=2.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60401 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=1.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60403 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=1.25&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60405 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60406 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=1.75&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60407 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=2.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60415 - "POST /find-template/?raw=false&threshold=0.915&min_separation_s=1.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60419 - "POST /find-template/?raw=false&threshold=0.915&min_separation_s=1.1&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60420 - "POST /find-template/?raw=false&threshold=0.915&min_separation_s=1.2&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60421 - "POST /find-template/?raw=false&threshold=0.915&min_separation_s=1.3&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60422 - "POST /find-template/?raw=false&threshold=0.915&min_separation_s=1.4&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60424 - "POST /find-template/?raw=false&threshold=0.915&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60425 - "POST /find-template/?raw=false&threshold=0.915&min_separation_s=1.6&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60427 - "POST /find-template/?raw=false&threshold=0.915&min_separation_s=1.7&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60429 - "POST /find-template/?raw=false&threshold=0.915&min_separation_s=1.8&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60430 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60433 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.1&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60434 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.2&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60439 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.3&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60440 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.4&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60442 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60444 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.6&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60445 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.7&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60446 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.8&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60448 - "POST /find-template/?raw=false&threshold=0.925&min_separation_s=1.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60449 - "POST /find-template/?raw=false&threshold=0.925&min_separation_s=1.1&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60451 - "POST /find-template/?raw=false&threshold=0.925&min_separation_s=1.2&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60452 - "POST /find-template/?raw=false&threshold=0.925&min_separation_s=1.3&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60454 - "POST /find-template/?raw=false&threshold=0.925&min_separation_s=1.4&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60455 - "POST /find-template/?raw=false&threshold=0.925&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60456 - "POST /find-template/?raw=false&threshold=0.925&min_separation_s=1.6&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60459 - "POST /find-template/?raw=false&threshold=0.925&min_separation_s=1.7&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60460 - "POST /find-template/?raw=false&threshold=0.925&min_separation_s=1.8&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60461 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60463 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.1&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60464 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.2&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60466 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.3&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60469 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.4&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60471 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60472 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.6&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60473 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.7&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60476 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.8&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60477 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60483 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.1&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60484 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.2&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60487 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.3&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60489 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.4&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60492 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60495 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.6&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60498 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.7&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60501 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.8&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60503 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=1.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60504 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=1.1&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60505 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=1.2&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60507 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=1.3&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60510 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=1.4&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60511 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60513 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=1.6&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60516 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=1.7&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60517 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=1.8&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60519 - "POST /find-template/?raw=false&threshold=0.945&min_separation_s=1.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60520 - "POST /find-template/?raw=false&threshold=0.945&min_separation_s=1.1&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60522 - "POST /find-template/?raw=false&threshold=0.945&min_separation_s=1.2&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60523 - "POST /find-template/?raw=false&threshold=0.945&min_separation_s=1.3&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60530 - "POST /find-template/?raw=false&threshold=0.945&min_separation_s=1.4&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60532 - "POST /find-template/?raw=false&threshold=0.945&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60534 - "POST /find-template/?raw=false&threshold=0.945&min_separation_s=1.6&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60536 - "POST /find-template/?raw=false&threshold=0.945&min_separation_s=1.7&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60538 - "POST /find-template/?raw=false&threshold=0.945&min_separation_s=1.8&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60540 - "POST /find-template/?raw=false&threshold=0.915&min_separation_s=1.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60542 - "POST /find-template/?raw=false&threshold=0.915&min_separation_s=1.1&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60551 - "POST /find-template/?raw=false&threshold=0.915&min_separation_s=1.2&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60556 - "POST /find-template/?raw=false&threshold=0.915&min_separation_s=1.3&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60562 - "POST /find-template/?raw=false&threshold=0.915&min_separation_s=1.4&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60566 - "POST /find-template/?raw=false&threshold=0.915&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60572 - "POST /find-template/?raw=false&threshold=0.915&min_separation_s=1.6&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60574 - "POST /find-template/?raw=false&threshold=0.915&min_separation_s=1.7&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60579 - "POST /find-template/?raw=false&threshold=0.915&min_separation_s=1.8&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60581 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60583 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.1&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60585 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.2&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60586 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.3&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60589 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.4&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60590 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60592 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.6&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60595 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.7&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60596 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.8&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60600 - "POST /find-template/?raw=false&threshold=0.925&min_separation_s=1.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60601 - "POST /find-template/?raw=false&threshold=0.925&min_separation_s=1.1&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60602 - "POST /find-template/?raw=false&threshold=0.925&min_separation_s=1.2&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60604 - "POST /find-template/?raw=false&threshold=0.925&min_separation_s=1.3&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60606 - "POST /find-template/?raw=false&threshold=0.925&min_separation_s=1.4&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60610 - "POST /find-template/?raw=false&threshold=0.925&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60612 - "POST /find-template/?raw=false&threshold=0.925&min_separation_s=1.6&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60613 - "POST /find-template/?raw=false&threshold=0.925&min_separation_s=1.7&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60622 - "POST /find-template/?raw=false&threshold=0.925&min_separation_s=1.8&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60625 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60629 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.1&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60632 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.2&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60634 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.3&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60636 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.4&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60639 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60640 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.6&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60641 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.7&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60644 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.8&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60645 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60649 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.1&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60664 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.2&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60667 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.3&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60669 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.4&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60670 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60776 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.2&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60779 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.3&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60783 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.4&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60784 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60785 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.6&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60787 - "POST /find-template/?raw=false&threshold=0.92&min_separation_s=1.7&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60788 - "POST /find-template/?raw=false&threshold=0.925&min_separation_s=1.2&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60789 - "POST /find-template/?raw=false&threshold=0.925&min_separation_s=1.3&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60791 - "POST /find-template/?raw=false&threshold=0.925&min_separation_s=1.4&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60794 - "POST /find-template/?raw=false&threshold=0.925&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60798 - "POST /find-template/?raw=false&threshold=0.925&min_separation_s=1.6&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60803 - "POST /find-template/?raw=false&threshold=0.925&min_separation_s=1.7&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60804 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.2&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60805 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.3&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60807 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.4&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60808 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60810 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.6&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60811 - "POST /find-template/?raw=false&threshold=0.93&min_separation_s=1.7&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60812 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.2&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60815 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.3&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60816 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.4&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60819 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60821 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.6&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60823 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.7&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60841 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.3&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60842 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.4&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60843 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60845 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.6&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60846 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.7&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60848 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.8&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60856 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.9&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60857 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=2.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60861 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=1.3&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60864 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=1.4&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60867 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60868 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=1.6&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60870 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=1.7&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60871 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=1.8&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60889 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=1.9&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60898 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=2.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60899 - "POST /find-template/?raw=false&threshold=0.945&min_separation_s=1.3&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60902 - "POST /find-template/?raw=false&threshold=0.945&min_separation_s=1.4&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60903 - "POST /find-template/?raw=false&threshold=0.945&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60906 - "POST /find-template/?raw=false&threshold=0.945&min_separation_s=1.6&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60909 - "POST /find-template/?raw=false&threshold=0.945&min_separation_s=1.7&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60911 - "POST /find-template/?raw=false&threshold=0.945&min_separation_s=1.8&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60915 - "POST /find-template/?raw=false&threshold=0.945&min_separation_s=1.9&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60917 - "POST /find-template/?raw=false&threshold=0.945&min_separation_s=2.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60918 - "POST /find-template/?raw=false&threshold=0.95&min_separation_s=1.3&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60919 - "POST /find-template/?raw=false&threshold=0.95&min_separation_s=1.4&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60921 - "POST /find-template/?raw=false&threshold=0.95&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60927 - "POST /find-template/?raw=false&threshold=0.95&min_separation_s=1.6&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60929 - "POST /find-template/?raw=false&threshold=0.95&min_separation_s=1.7&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60936 - "POST /find-template/?raw=false&threshold=0.95&min_separation_s=1.8&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60939 - "POST /find-template/?raw=false&threshold=0.95&min_separation_s=1.9&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60940 - "POST /find-template/?raw=false&threshold=0.95&min_separation_s=2.0&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60970 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.3&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60983 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.4&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60990 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.5&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60994 - "POST /find-template/?raw=false&threshold=0.94&min_separation_s=1.2&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60997 - "POST /find-template/?raw=false&threshold=0.938&min_separation_s=1.25&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61001 - "POST /find-template/?raw=false&threshold=0.938&min_separation_s=1.3&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61003 - "POST /find-template/?raw=false&threshold=0.932&min_separation_s=1.3&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61004 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.3&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61006 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.35&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=8 HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [91322]
+INFO:     Started server process [7012]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:61169 - "POST /find-template/?raw=true&threshold=0.7&min_separation_s=0.4&sr_target=22050 HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [7012]
+INFO:     Started server process [7554]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:61274 - "POST /find-template/?raw=true&threshold=0.7&min_separation_s=0.4&sr_target=22050 HTTP/1.1" 200 OK
+/Users/freedom/CCL/python-beep/main.py:191: RuntimeWarning: invalid value encountered in sqrt
+  denom = np.sqrt(target_energy * tmpl_energy) + 1e-8
+INFO:     127.0.0.1:61279 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.2&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62352 - "POST /find-template/?raw=true&threshold=0.7&min_separation_s=0.4&sr_target=22050 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62353 - "POST /find-template/?raw=false&threshold=0.935&min_separation_s=1.2&sr_target=11025&band_low=1100&band_high=1300&smooth_ms=10 HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [7554]
+INFO:     Started server process [20643]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [20643]
+INFO:     Started server process [20665]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [20665]
+INFO:     Started server process [20692]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:62593 - "POST /answer-start/?raw=true&threshold=0.7&min_separation_s=0.4&sr_target=22050 HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [20692]
+INFO:     Started server process [21174]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [21174]
+INFO:     Started server process [21176]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [21176]
+INFO:     Started server process [24100]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:62989 - "POST /answer-start/?raw=true&threshold=0.7&min_separation_s=0.4&sr_target=22050 HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [24100]
+INFO:     Started server process [24504]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [24504]
+Process SpawnProcess-15:
+Traceback (most recent call last):
+  File "/Users/freedom/.local/share/uv/python/cpython-3.12.10-macos-aarch64-none/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/Users/freedom/.local/share/uv/python/cpython-3.12.10-macos-aarch64-none/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/freedom/CCL/python-beep/.venv/lib/python3.12/site-packages/uvicorn/_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+  File "/Users/freedom/CCL/python-beep/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 67, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/freedom/.local/share/uv/python/cpython-3.12.10-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/Users/freedom/.local/share/uv/python/cpython-3.12.10-macos-aarch64-none/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/freedom/.local/share/uv/python/cpython-3.12.10-macos-aarch64-none/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/freedom/CCL/python-beep/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 71, in serve
+    await self._serve(sockets)
+  File "/Users/freedom/CCL/python-beep/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 78, in _serve
+    config.load()
+  File "/Users/freedom/CCL/python-beep/.venv/lib/python3.12/site-packages/uvicorn/config.py", line 436, in load
+    self.loaded_app = import_from_string(self.app)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/freedom/CCL/python-beep/.venv/lib/python3.12/site-packages/uvicorn/importer.py", line 22, in import_from_string
+    raise exc from None
+  File "/Users/freedom/CCL/python-beep/.venv/lib/python3.12/site-packages/uvicorn/importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/freedom/.local/share/uv/python/cpython-3.12.10-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/Users/freedom/CCL/python-beep/main.py", line 10, in <module>
+    from dotenv import load_dotenv
+ModuleNotFoundError: No module named 'dotenv'
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Started server process [41823]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [41823]
+INFO:     Started server process [41837]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [41837]
+INFO:     Started server process [41838]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [41838]
+INFO:     Started server process [41850]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [41850]
+INFO:     Started server process [43001]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [43001]
+INFO:     Started server process [43644]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:63839 - "POST /answer-start/ HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [43644]
+INFO:     Started server process [44039]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [44039]
+INFO:     Started server process [47552]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
