@@ -12,6 +12,7 @@ sys.path.append(str(Path(__file__).parent.parent))
 
 from routes.detect import detect_frequency_beeps, detect_template_matches, generate_report
 from routes.health import health_check
+from routes.cross_correlation import detect_cross_correlation_beeps
 from utils.config import get_settings
 from utils.audio import validate_audio_file
 
@@ -81,6 +82,17 @@ async def api_generate_report(request: Request):
         logger.error(f"Error in report generation: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Processing error: {str(e)}")
 
+@app.post("/api/detect-cross-correlation")
+async def api_detect_cross_correlation(request: Request):
+    """
+    Detect beeps using lightweight cross-correlation (SciPy only).
+    """
+    try:
+        return await detect_cross_correlation_beeps(request)
+    except Exception as e:
+        logger.error(f"Error in cross-correlation detection: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Processing error: {str(e)}")
+
 # Legacy route support for backward compatibility
 @app.post("/detect-frequency-beeps/")
 async def legacy_detect_frequency_beeps(request: Request):
@@ -99,7 +111,7 @@ async def legacy_generate_report(request: Request):
 async def not_found_handler(request: Request, exc):
     return JSONResponse(
         status_code=404,
-        content={"detail": "Endpoint not found. Available endpoints: /api/health, /api/detect-frequency-beeps, /api/detect-template-matches, /api/generate-report"}
+        content={"detail": "Endpoint not found. Available endpoints: /api/health, /api/detect-frequency-beeps, /api/detect-template-matches, /api/generate-report, /api/detect-cross-correlation"}
     )
 
 @app.exception_handler(500)
