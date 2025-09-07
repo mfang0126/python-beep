@@ -2,12 +2,19 @@ import io
 import os
 import librosa
 import numpy as np
+import soundfile as sf
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 from typing import List, Optional, Any, Tuple
 from scipy.signal import butter, filtfilt, fftconvolve, find_peaks, correlate
 from dotenv import load_dotenv
+
+# Import configuration system
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent / "api"))
+from utils.config import get_settings
 
 # 1. 初始化 FastAPI 应用
 app = FastAPI(
@@ -24,6 +31,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Load settings
+settings = get_settings()
 
 def _format_mm_ss(time_seconds: float) -> str:
     """格式化为 MM:SS.mmm 字符串。"""
@@ -32,36 +41,6 @@ def _format_mm_ss(time_seconds: float) -> str:
     minutes = int(time_seconds // 60)
     seconds = time_seconds - minutes * 60
     return f"{minutes:02d}:{seconds:06.3f}"
-
-# 从 .env 载入环境变量
-load_dotenv()
-
-def _get_env_optional_float(name: str) -> Optional[float]:
-    val = os.getenv(name)
-    if val is None or val == "":
-        return None
-    try:
-        return float(val)
-    except Exception:
-        return None
-
-def _get_env_float(name: str, default_value: float) -> float:
-    try:
-        return float(os.getenv(name, default_value))
-    except Exception:
-        return default_value
-
-def _get_env_int(name: str, default_value: int) -> int:
-    try:
-        return int(os.getenv(name, default_value))
-    except Exception:
-        return default_value
-
-def _get_env_bool(name: str, default_value: bool) -> bool:
-    val = os.getenv(name)
-    if val is None:
-        return default_value
-    return str(val).lower() in {"1", "true", "yes", "on"}
 
 
 class FindBeepsResponse(BaseModel):
@@ -90,7 +69,12 @@ async def detect_frequency_beeps(file: UploadFile = File(...)):
     """
     # 检查上传的是否是音频文件
     if not file.content_type or not file.content_type.startswith("audio/"):
-        raise HTTPException(status_code=400, detail="错误：请上传一个音频文件。")
+        # 如果content_type不是audio/，检查文件扩展名
+        filename = file.filename or ""
+        if not (filename.lower().endswith('.wav') or filename.lower().endswith('.mp3') or 
+                filename.lower().endswith('.flac') or filename.lower().endswith('.aac') or
+                filename.lower().endswith('.ogg') or filename.lower().endswith('.m4a')):
+            raise HTTPException(status_code=400, detail="错误：请上传一个音频文件。")
 
     try:
         # --- 核心音频处理逻辑 ---
@@ -178,25 +162,30 @@ async def detect_template_matches(
     """
     # 检查上传类型
     if not file.content_type or not file.content_type.startswith("audio/"):
-        raise HTTPException(status_code=400, detail="错误：请上传音频文件作为目标。")
+        # 如果content_type不是audio/，检查文件扩展名
+        filename = file.filename or ""
+        if not (filename.lower().endswith('.wav') or filename.lower().endswith('.mp3') or 
+                filename.lower().endswith('.flac') or filename.lower().endswith('.aac') or
+                filename.lower().endswith('.ogg') or filename.lower().endswith('.m4a')):
+            raise HTTPException(status_code=400, detail="错误：请上传音频文件作为目标。")
 
     try:
-        # 参数优先采用查询参数；未提供时从环境变量读取
-        threshold = threshold if threshold is not None else _get_env_float("BEEP_THRESHOLD", 0.6)
-        min_separation_s = min_separation_s if min_separation_s is not None else _get_env_float("BEEP_MIN_SEP", 0.5)
-        sr_target = sr_target if sr_target is not None else _get_env_int("BEEP_SR", 11025)
-        band_low = band_low if band_low is not None else _get_env_float("BEEP_BAND_LOW", 1100.0)
-        band_high = band_high if band_high is not None else _get_env_float("BEEP_BAND_HIGH", 1300.0)
-        smooth_ms = smooth_ms if smooth_ms is not None else _get_env_float("BEEP_SMOOTH_MS", 10.0)
-        raw = raw if raw is not None else _get_env_bool("BEEP_RAW", False)
+        # 参数优先采用查询参数；未提供时从配置读取
+        threshold = threshold if threshold is not None else settings.beep_threshold
+        min_separation_s = min_separation_s if min_separation_s is not None else settings.beep_min_sep
+        sr_target = sr_target if sr_target is not None else settings.beep_sr
+        band_low = band_low if band_low is not None else settings.beep_band_low
+        band_high = band_high if band_high is not None else settings.beep_band_high
+        smooth_ms = smooth_ms if smooth_ms is not None else settings.beep_smooth_ms
+        raw = raw if raw is not None else settings.beep_raw
         if start_s is None:
-            start_s = _get_env_optional_float("BEEP_START_S")
+            start_s = settings.beep_start_s
         if end_s is None:
-            end_s = _get_env_optional_float("BEEP_END_S")
+            end_s = settings.beep_end_s
 
         # 读取音频
         target_bytes = await file.read()
-        default_template_path = os.getenv("DEFAULT_TEMPLATE_PATH", "/Users/freedom/CCL/python-beep/beep_template.wav")
+        default_template_path = settings.default_template_path
         try:
             with open(default_template_path, "rb") as f:
                 template_bytes = f.read()
@@ -303,3 +292,107 @@ async def detect_template_matches(
         raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"模板匹配时发生错误: {str(e)}")
+
+@app.post("/detect-cross-correlation/")
+async def detect_cross_correlation_beeps(
+    file: UploadFile = File(...),
+    threshold: Optional[float] = None,
+    min_separation_s: Optional[float] = None,
+    sr_target: Optional[int] = None
+):
+    """
+    使用轻量级互相关检测嘟声（仅使用SciPy，不依赖librosa）
+    """
+    if not file.content_type or not file.content_type.startswith("audio/"):
+        # 如果content_type不是audio/，检查文件扩展名
+        filename = file.filename or ""
+        if not (filename.lower().endswith('.wav') or filename.lower().endswith('.mp3') or 
+                filename.lower().endswith('.flac') or filename.lower().endswith('.aac') or
+                filename.lower().endswith('.ogg') or filename.lower().endswith('.m4a')):
+            raise HTTPException(status_code=400, detail="错误：请上传一个音频文件。")
+
+    try:
+        # 使用配置参数
+        threshold = threshold if threshold is not None else settings.beep_threshold
+        min_separation_s = min_separation_s if min_separation_s is not None else settings.beep_min_sep
+        sr_target = sr_target if sr_target is not None else settings.beep_sr
+
+        # 读取音频文件（使用soundfile）
+        contents = await file.read()
+        y_target, sr = sf.read(io.BytesIO(contents))
+        
+        # 重采样如果需要
+        if sr != sr_target:
+            original_length = len(y_target)
+            target_length = int(original_length * sr_target / sr)
+            y_target = np.interp(
+                np.linspace(0, original_length, target_length),
+                np.arange(original_length),
+                y_target
+            )
+            sr = sr_target
+
+        # 读取模板文件
+        template_path = settings.default_template_path
+        try:
+            y_template, template_sr = sf.read(template_path)
+            
+            # 重采样模板
+            if template_sr != sr_target:
+                original_length = len(y_template)
+                target_length = int(original_length * sr_target / template_sr)
+                y_template = np.interp(
+                    np.linspace(0, original_length, target_length),
+                    np.arange(original_length),
+                    y_template
+                )
+                template_sr = sr_target
+        except Exception:
+            raise HTTPException(status_code=400, detail="默认模板文件不存在。")
+
+        # 简单互相关检测
+        min_dist = max(1, int(min_separation_s * sr))
+        
+        # 标准化信号
+        y_target_norm = y_target.astype(np.float32)
+        y_template_norm = y_template.astype(np.float32)
+        
+        # 去除DC分量并标准化
+        y_target_norm = y_target_norm - np.mean(y_target_norm)
+        y_template_norm = y_template_norm - np.mean(y_template_norm)
+        
+        # 标准化幅度
+        target_rms = np.sqrt(np.mean(y_target_norm**2))
+        template_rms = np.sqrt(np.mean(y_template_norm**2))
+        
+        if target_rms > 0:
+            y_target_norm = y_target_norm / target_rms
+        if template_rms > 0:
+            y_template_norm = y_template_norm / template_rms
+        
+        # 计算互相关
+        correlation = correlate(y_target_norm, y_template_norm, mode='valid')
+        
+        # 寻找峰值
+        correlation_threshold = threshold * np.max(correlation)
+        peaks, properties = find_peaks(correlation, height=correlation_threshold, distance=min_dist)
+        
+        # 转换为时间
+        times = (peaks / float(sr)).tolist()
+        
+        return {
+            "filename": file.filename or "unknown",
+            "template": template_path.split("/")[-1],
+            "sr": sr,
+            "threshold": threshold,
+            "min_separation_s": min_separation_s,
+            "method": "cross_correlation",
+            "matches": times,
+            "matches_mm_ss": [_format_mm_ss(t) for t in times],
+            "num_matches": len(times),
+        }
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"互相关检测时发生错误: {str(e)}")

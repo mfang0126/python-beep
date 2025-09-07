@@ -23,7 +23,7 @@ class Settings(BaseSettings):
     beep_end_s: Optional[float] = None
     
     # File Paths
-    default_template_path: str = "/var/task/static/beep_template.wav"
+    default_template_path: str = "static/beep_template.wav"
     
     class Config:
         env_prefix = "BEEP_"
