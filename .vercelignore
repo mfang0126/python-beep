@@ -1,0 +1,13 @@
+# Exclude large test files from Vercel deployment
+testing-files/
+*.log
+__pycache__/
+.pytest_cache/
+.coverage
+.git/
+.claude/
+scripts/
+.venv/
+node_modules/
+env/
+venv/
