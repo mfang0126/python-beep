@@ -1,13 +1,12 @@
 import io
 import os
-import librosa
 import numpy as np
 import soundfile as sf
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 from typing import List, Optional, Any, Tuple
-from scipy.signal import butter, filtfilt, fftconvolve, find_peaks, correlate
+from scipy.signal import correlate
 from dotenv import load_dotenv
 
 # Import configuration system
@@ -16,13 +15,17 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).parent / "api"))
 from utils.config import get_settings
 
+# Import cross-correlation function
+from routes.cross_correlation import cross_correlation_detection
+
 # 1. 初始化 FastAPI 应用
 app = FastAPI(
     title="Audio Beep Detection API",
-    description="一个可以检测音频文件中'嘟'声时间点的API"
+    description="Lightweight beep detection using cross-correlation",
+    version="1.0.0"
 )
 
-# CORS (development friendly)
+# 添加 CORS 中间件
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -31,278 +34,41 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Load settings
+# 加载环境变量
+load_dotenv()
+
+# 获取配置
 settings = get_settings()
 
-def _format_mm_ss(time_seconds: float) -> str:
-    """格式化为 MM:SS.mmm 字符串。"""
-    if time_seconds is None or (isinstance(time_seconds, float) and np.isnan(time_seconds)):
-        return "00:00.000"
-    minutes = int(time_seconds // 60)
-    seconds = time_seconds - minutes * 60
-    return f"{minutes:02d}:{seconds:06.3f}"
+# 2. 定义响应模型
+class HealthResponse(BaseModel):
+    status: str
 
-
-class FindBeepsResponse(BaseModel):
-    filename: str
-    detected_beep_timestamps: List[float] = Field(..., description="检测到的时间(秒)")
-    detected_beep_timestamps_mm_ss: List[str] = Field(..., description="检测到的时间(MM:SS.mmm)")
-
-
-class TemplateMatchResponse(BaseModel):
+class CrossCorrelationResponse(BaseModel):
     filename: str
     template: str
     sr: int
     threshold: float
     min_separation_s: float
-    raw: bool
+    method: str
     matches: List[float]
     matches_mm_ss: List[str]
     num_matches: int
 
-
-# 2. 定义我们的API端点 (Endpoint)
-@app.post("/detect-frequency-beeps/", response_model=FindBeepsResponse)
-async def detect_frequency_beeps(file: UploadFile = File(...)):
-    """
-    接收一个音频文件，分析并返回所有检测到的'嘟'声的时间戳 (秒)。
-    """
-    # 检查上传的是否是音频文件
-    if not file.content_type or not file.content_type.startswith("audio/"):
-        # 如果content_type不是audio/，检查文件扩展名
-        filename = file.filename or ""
-        if not (filename.lower().endswith('.wav') or filename.lower().endswith('.mp3') or 
-                filename.lower().endswith('.flac') or filename.lower().endswith('.aac') or
-                filename.lower().endswith('.ogg') or filename.lower().endswith('.m4a')):
-            raise HTTPException(status_code=400, detail="错误：请上传一个音频文件。")
-
-    try:
-        # --- 核心音频处理逻辑 ---
-
-        # a. 将上传的文件内容读入内存
-        contents = await file.read()
-        
-        # b. 使用 librosa 加载音频。我们用 io.BytesIO 来让 librosa 直接从内存中读取
-        y, sr = librosa.load(io.BytesIO(contents), sr=None)
-
-        # c. 设置参数 (这些值你需要根据你的'嘟'声样本进行微调)
-        target_freq_low = 1100  # '嘟'声的最低频率
-        target_freq_high = 1300 # '嘟'声的最高频率
-        n_fft = 4096            # FFT窗口大小，决定频率分辨率
-        hop_length = n_fft // 4 # 与 STFT 保持一致的步长
-        
-        # d. 进行短时傅里叶变换 (STFT)
-        D = librosa.stft(y, n_fft=n_fft, hop_length=hop_length)
-        freqs = librosa.fft_frequencies(sr=sr, n_fft=n_fft)
-
-        # e. 找到目标频率范围对应的索引
-        target_freq_indices = np.where((freqs >= target_freq_low) & (freqs <= target_freq_high))[0]
-
-        # f. 计算目标频率范围的能量
-        energy_at_target_freq = np.sum(np.abs(D[target_freq_indices, :]), axis=0)
-
-        # g. 设置动态阈值来检测'嘟'声 (平均能量的5倍，可以调整)
-        threshold = np.mean(energy_at_target_freq) * 5
-
-        # h. 找到所有能量超过阈值的帧
-        beep_frames = np.where(energy_at_target_freq > threshold)[0]
-        
-        # i. 为了避免将一个'嘟'声识别成连续的多个点，我们做一个简单的处理：
-        #    只保留连续'嘟'声块的起始点
-        if len(beep_frames) > 0:
-            beep_groups = np.split(beep_frames, np.where(np.diff(beep_frames) != 1)[0] + 1)
-            first_beep_frames = [group[0] for group in beep_groups]
-        else:
-            first_beep_frames = []
-
-        # j. 将帧索引转换为秒
-        beep_timestamps = librosa.frames_to_time(first_beep_frames, sr=sr, hop_length=hop_length)
-
-        # 3. 返回结果
-        ts = beep_timestamps.tolist()  # 转换为Python列表
-        return FindBeepsResponse(
-            filename=file.filename or "unknown",
-            detected_beep_timestamps=ts,
-            detected_beep_timestamps_mm_ss=[_format_mm_ss(t) for t in ts],
-        )
-
-    except Exception as e:
-        # 如果处理过程中发生任何错误，返回一个服务器错误信息
-        raise HTTPException(status_code=500, detail=f"处理音频时发生错误: {str(e)}")
-
-# 添加一个根路径，方便测试服务是否启动
-@app.get("/")
-def read_root():
+# 3. 定义API端点
+@app.get("/health", response_model=HealthResponse)
+async def health_check():
+    """健康检查端点"""
     return {"status": "Audio Processing API is running!"}
 
-# 3. 模板匹配端点：使用参考片段在目标音频中检测相似的'嘟'声
-@app.post("/detect-template-matches/", response_model=TemplateMatchResponse)
-async def detect_template_matches(
-    file: UploadFile = File(...),
-    threshold: Optional[float] = None,
-    min_separation_s: Optional[float] = None,
-    sr_target: Optional[int] = None,
-    band_low: Optional[float] = None,
-    band_high: Optional[float] = None,
-    smooth_ms: Optional[float] = None,
-    raw: Optional[bool] = None,
-    start_s: Optional[float] = None,
-    end_s: Optional[float] = None,
-):
-    """
-    基于提供的参考片段(模板)在目标音频中进行相似'嘟'声检测。
-    - 使用带通滤波聚焦在目标频段，然后对包络做归一化互相关(NCC)。
-    - 通过峰值检测返回匹配到的时间点(秒)。
-    可调参数:
-      - threshold: NCC阈值(0~1)，越高越严格
-      - min_separation_s: 相邻两次检测最小间隔(秒)
-      - sr_target: 处理采样率(Hz)
-      - band_low/band_high: 目标频段(Hz)
-      - smooth_ms: 包络平滑窗口大小(毫秒)
-    """
-    # 检查上传类型
-    if not file.content_type or not file.content_type.startswith("audio/"):
-        # 如果content_type不是audio/，检查文件扩展名
-        filename = file.filename or ""
-        if not (filename.lower().endswith('.wav') or filename.lower().endswith('.mp3') or 
-                filename.lower().endswith('.flac') or filename.lower().endswith('.aac') or
-                filename.lower().endswith('.ogg') or filename.lower().endswith('.m4a')):
-            raise HTTPException(status_code=400, detail="错误：请上传音频文件作为目标。")
-
-    try:
-        # 参数优先采用查询参数；未提供时从配置读取
-        threshold = threshold if threshold is not None else settings.beep_threshold
-        min_separation_s = min_separation_s if min_separation_s is not None else settings.beep_min_sep
-        sr_target = sr_target if sr_target is not None else settings.beep_sr
-        band_low = band_low if band_low is not None else settings.beep_band_low
-        band_high = band_high if band_high is not None else settings.beep_band_high
-        smooth_ms = smooth_ms if smooth_ms is not None else settings.beep_smooth_ms
-        raw = raw if raw is not None else settings.beep_raw
-        if start_s is None:
-            start_s = settings.beep_start_s
-        if end_s is None:
-            end_s = settings.beep_end_s
-
-        # 读取音频
-        target_bytes = await file.read()
-        default_template_path = settings.default_template_path
-        try:
-            with open(default_template_path, "rb") as f:
-                template_bytes = f.read()
-            template_name = default_template_path.split("/")[-1]
-        except Exception:
-            raise HTTPException(status_code=400, detail="默认模板文件不存在。请创建 beep_template.wav。")
-
-        y_target, sr = librosa.load(io.BytesIO(target_bytes), sr=sr_target)
-        y_tmpl, _ = librosa.load(io.BytesIO(template_bytes), sr=sr_target)
-
-        if y_tmpl.size == 0 or y_target.size == 0:
-            raise HTTPException(status_code=400, detail="无法读取音频或音频为空。")
-
-        # 原始波形互相关（raw=True）或 带通+包络+NCC（raw=False）
-        min_dist = max(1, int(min_separation_s * sr_target))
-
-        if raw:
-            x = y_target.astype(np.float32)
-            h = y_tmpl.astype(np.float32)
-            x /= (np.max(np.abs(x)) + 1e-8)
-            h /= (np.max(np.abs(h)) + 1e-8)
-            corr = correlate(x, h, mode='valid')
-            height = float(threshold) * float(np.max(corr) if corr.size > 0 else 1.0)
-            peaks, _ = find_peaks(corr, height=height, distance=min_dist)
-            times = (peaks / float(sr_target)).tolist()
-            # 可选的时间范围过滤
-            if start_s is not None:
-                times = [t for t in times if t >= start_s]
-            if end_s is not None:
-                times = [t for t in times if t <= end_s]
-            return TemplateMatchResponse(
-                filename=file.filename or "unknown",
-                template=template_name,
-                sr=sr_target,
-                threshold=threshold,
-                min_separation_s=min_separation_s,
-                raw=True,
-                matches=times,
-                matches_mm_ss=[_format_mm_ss(t) for t in times],
-                num_matches=len(times),
-            )
-        else:
-            # 设计带通滤波器
-            nyq = 0.5 * sr_target
-            low = max(1.0, band_low) / nyq
-            high = min(sr_target/2 - 100.0, band_high) / nyq
-            if not (0 < low < high < 1):
-                raise HTTPException(status_code=400, detail="带通频段设置不合理，请调整 band_low/band_high。")
-            b, a = butter(N=4, Wn=[low, high], btype='band')  # type: ignore
-
-            # 带通 + 取包络 + 平滑
-            def envelope(sig: np.ndarray) -> np.ndarray:
-                if sig.ndim > 1:
-                    sig = np.mean(sig, axis=1)
-                fil = filtfilt(b, a, sig)
-                env = np.abs(fil)
-                win = max(1, int(sr_target * (smooth_ms / 1000.0)))
-                kernel = np.ones(win, dtype=np.float32) / float(win)
-                # 使用FFT卷积加速
-                sm = fftconvolve(env, kernel, mode='same')
-                return sm.astype(np.float32)
-
-            env_target = envelope(y_target)
-            env_tmpl = envelope(y_tmpl)
-
-            L = env_tmpl.size
-            if L < 10:
-                raise HTTPException(status_code=400, detail="模板片段太短，至少需要>10个样本。")
-            if env_target.size <= L:
-                raise HTTPException(status_code=400, detail="目标音频太短，长度应大于模板。")
-
-            # 归一化互相关
-            tmpl_energy = float(np.sum(env_tmpl ** 2))
-            if tmpl_energy == 0.0:
-                raise HTTPException(status_code=400, detail="模板能量为0，无法进行匹配。")
-
-            numerator = fftconvolve(env_target, env_tmpl[::-1], mode='valid')
-            ones = np.ones(L, dtype=np.float32)
-            target_energy = fftconvolve(env_target.astype(np.float32) ** 2, ones, mode='valid')
-            denom = np.sqrt(target_energy * tmpl_energy) + 1e-8
-            ncc = numerator / denom
-
-            peaks, _ = find_peaks(ncc, height=threshold, distance=min_dist)
-            times = (peaks / float(sr_target)).tolist()
-
-            # 可选的时间范围过滤
-            if start_s is not None:
-                times = [t for t in times if t >= start_s]
-            if end_s is not None:
-                times = [t for t in times if t <= end_s]
-            return TemplateMatchResponse(
-                filename=file.filename or "unknown",
-                template=template_name,
-                sr=sr_target,
-                threshold=threshold,
-                min_separation_s=min_separation_s,
-                raw=False,
-                matches=times,
-                matches_mm_ss=[_format_mm_ss(t) for t in times],
-                num_matches=len(times),
-            )
-
-    except HTTPException:
-        raise
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"模板匹配时发生错误: {str(e)}")
-
-@app.post("/detect-cross-correlation/")
+@app.post("/detect-cross-correlation/", response_model=CrossCorrelationResponse)
 async def detect_cross_correlation_beeps(
     file: UploadFile = File(...),
     threshold: Optional[float] = None,
     min_separation_s: Optional[float] = None,
     sr_target: Optional[int] = None
 ):
-    """
-    使用轻量级互相关检测嘟声（仅使用SciPy，不依赖librosa）
-    """
+    """使用轻量级互相关检测嘟声（仅使用SciPy，不依赖librosa）"""
     if not file.content_type or not file.content_type.startswith("audio/"):
         # 如果content_type不是audio/，检查文件扩展名
         filename = file.filename or ""
@@ -323,76 +89,68 @@ async def detect_cross_correlation_beeps(
         
         # 重采样如果需要
         if sr != sr_target:
-            original_length = len(y_target)
-            target_length = int(original_length * sr_target / sr)
-            y_target = np.interp(
-                np.linspace(0, original_length, target_length),
-                np.arange(original_length),
-                y_target
-            )
+            # 简单的重采样（对于生产环境，建议使用更专业的重采样）
+            from scipy import signal
+            old_samples = len(y_target)
+            new_samples = int(old_samples * sr_target / sr)
+            y_target = signal.resample(y_target, new_samples)
             sr = sr_target
-
+        
+        # 确保音频是单声道
+        if len(y_target.shape) > 1:
+            y_target = np.mean(y_target, axis=1)
+        
         # 读取模板文件
         template_path = settings.default_template_path
-        try:
-            y_template, template_sr = sf.read(template_path)
-            
-            # 重采样模板
-            if template_sr != sr_target:
-                original_length = len(y_template)
-                target_length = int(original_length * sr_target / template_sr)
-                y_template = np.interp(
-                    np.linspace(0, original_length, target_length),
-                    np.arange(original_length),
-                    y_template
-                )
-                template_sr = sr_target
-        except Exception:
-            raise HTTPException(status_code=400, detail="默认模板文件不存在。")
-
-        # 简单互相关检测
-        min_dist = max(1, int(min_separation_s * sr))
+        if not os.path.exists(template_path):
+            raise HTTPException(status_code=500, detail=f"模板文件未找到: {template_path}")
         
-        # 标准化信号
-        y_target_norm = y_target.astype(np.float32)
-        y_template_norm = y_template.astype(np.float32)
+        y_template, sr_template = sf.read(template_path)
         
-        # 去除DC分量并标准化
-        y_target_norm = y_target_norm - np.mean(y_target_norm)
-        y_template_norm = y_template_norm - np.mean(y_template_norm)
+        # 重采样模板到目标采样率
+        if sr_template != sr_target:
+            from scipy import signal
+            old_samples = len(y_template)
+            new_samples = int(old_samples * sr_target / sr_template)
+            y_template = signal.resample(y_template, new_samples)
         
-        # 标准化幅度
-        target_rms = np.sqrt(np.mean(y_target_norm**2))
-        template_rms = np.sqrt(np.mean(y_template_norm**2))
+        # 确保模板是单声道
+        if len(y_template.shape) > 1:
+            y_template = np.mean(y_template, axis=1)
         
-        if target_rms > 0:
-            y_target_norm = y_target_norm / target_rms
-        if template_rms > 0:
-            y_template_norm = y_template_norm / template_rms
+        # 调用互相关检测函数
+        matches = cross_correlation_detection(
+            y_target=y_target,
+            y_template=y_template,
+            sr=sr_target,
+            threshold=threshold,
+            min_separation_s=min_separation_s
+        )
         
-        # 计算互相关
-        correlation = correlate(y_target_norm, y_template_norm, mode='valid')
-        
-        # 寻找峰值
-        correlation_threshold = threshold * np.max(correlation)
-        peaks, properties = find_peaks(correlation, height=correlation_threshold, distance=min_dist)
-        
-        # 转换为时间
-        times = (peaks / float(sr)).tolist()
+        # 转换为分:秒格式
+        matches_mm_ss = [f"{int(m//60):02d}:{int(m%60):03d}" for m in matches]
         
         return {
             "filename": file.filename or "unknown",
-            "template": template_path.split("/")[-1],
-            "sr": sr,
+            "template": os.path.basename(template_path),
+            "sr": sr_target,
             "threshold": threshold,
             "min_separation_s": min_separation_s,
             "method": "cross_correlation",
-            "matches": times,
-            "matches_mm_ss": [_format_mm_ss(t) for t in times],
-            "num_matches": len(times),
+            "matches": matches,
+            "matches_mm_ss": matches_mm_ss,
+            "num_matches": len(matches)
         }
-
-    except HTTPException:
-        raise
+        
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"互相关检测时发生错误: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"处理音频时出错: {str(e)}")
+
+# 4. 根路径重定向到健康检查
+@app.get("/")
+async def root():
+    """根路径重定向到健康检查"""
+    return {"status": "Audio Processing API is running!", "endpoints": ["/health", "/detect-cross-correlation/"]}
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
