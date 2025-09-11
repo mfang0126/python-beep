@@ -26,7 +26,5 @@
     "api/main.py": {
       "maxDuration": 30
     }
-  },
-  "ignoreCommand": "echo 'Ignoring build files'",
-  "gitHead": "master"
+  }
 }
