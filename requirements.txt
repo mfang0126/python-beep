@@ -3,10 +3,10 @@ fastapi==0.104.1
 uvicorn[standard]==0.24.0
 python-multipart==0.0.6
 
-# Core audio processing (minimal)
+# Core audio processing (minimal) - using pre-built wheels
 soundfile==0.12.1
-numpy==1.24.3
-scipy==1.11.3
+numpy==1.26.4  # Newer version with pre-built wheels
+scipy==1.12.0  # Newer version with pre-built wheels
 
 # Environment and configuration
 python-dotenv==1.0.0
