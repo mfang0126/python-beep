@@ -1,0 +1,187 @@
+openapi: 3.0.0
+info:
+  title: Audio Beep Detection API
+  description: A lightweight API for detecting beep sounds in audio files using cross-correlation
+  version: 1.0.0
+  contact:
+    name: API Support
+    email: support@example.com
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+
+servers:
+  - url: https://python-beep.vercel.app
+    description: Production server (Vercel)
+  - url: http://localhost:8000
+    description: Local development server
+
+paths:
+  /:
+    get:
+      summary: Root endpoint
+      description: Returns API status and available endpoints
+      tags:
+        - General
+      responses:
+        '200':
+          description: API is running
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "Audio Processing API is running!"
+                  endpoints:
+                    type: array
+                    items:
+                      type: string
+                    example: ["/health", "/detect-cross-correlation/"]
+
+  /health:
+    get:
+      summary: Health check
+      description: Check if the API is running properly
+      tags:
+        - General
+      responses:
+        '200':
+          description: API is healthy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+
+  /detect-cross-correlation/:
+    post:
+      summary: Detect beeps using cross-correlation
+      description: Detect beep sounds in audio files using lightweight cross-correlation method
+      tags:
+        - Detection
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: Audio file to analyze (WAV, MP3, FLAC, AAC, OGG, M4A)
+                threshold:
+                  type: number
+                  format: float
+                  description: Detection threshold (0.0-1.0)
+                  default: 0.7
+                  example: 0.7
+                min_separation_s:
+                  type: number
+                  format: float
+                  description: Minimum separation between detections in seconds
+                  default: 0.4
+                  example: 0.4
+                sr_target:
+                  type: integer
+                  format: int32
+                  description: Target sample rate for processing
+                  default: 22050
+                  example: 22050
+      responses:
+        '200':
+          description: Successfully detected beeps
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CrossCorrelationResponse'
+        '400':
+          description: Bad request - invalid file or parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Server error during processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  schemas:
+    HealthResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          description: API status message
+          example: "Audio Processing API is running!"
+
+    CrossCorrelationResponse:
+      type: object
+      properties:
+        filename:
+          type: string
+          description: Name of the processed file
+          example: "test_audio.wav"
+        template:
+          type: string
+          description: Name of the template file used
+          example: "beep_template.wav"
+        sr:
+          type: integer
+          format: int32
+          description: Sample rate used for processing
+          example: 22050
+        threshold:
+          type: number
+          format: float
+          description: Threshold value used for detection
+          example: 0.7
+        min_separation_s:
+          type: number
+          format: float
+          description: Minimum separation between detections
+          example: 0.4
+        method:
+          type: string
+          description: Detection method used
+          example: "cross_correlation"
+        matches:
+          type: array
+          items:
+            type: number
+            format: float
+          description: List of detected beep timestamps in seconds
+          example: [1.0, 2.5, 4.0]
+        matches_mm_ss:
+          type: array
+          items:
+            type: string
+          description: List of detected beep timestamps in MM:SS format
+          example: ["00:001", "00:002", "00:004"]
+        num_matches:
+          type: integer
+          format: int32
+          description: Total number of beeps detected
+          example: 3
+
+    ErrorResponse:
+      type: object
+      properties:
+        detail:
+          type: string
+          description: Error message
+          example: "错误：请上传一个音频文件。"
+
+tags:
+  - name: General
+    description: General API endpoints
+  - name: Detection
+    description: Audio beep detection endpoints
+
+externalDocs:
+  description: GitHub Repository
+  url: https://github.com/mfang0126/python-beep

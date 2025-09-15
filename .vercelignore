@@ -11,3 +11,5 @@ scripts/
 node_modules/
 env/
 venv/
+# Keep static files needed for API and documentation
+!static/

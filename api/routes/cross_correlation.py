@@ -10,7 +10,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-def load_audio_lightweight(file: UploadFile, sr_target: int = 22050) -> Tuple[np.ndarray, int]:
+async def load_audio_lightweight(file: UploadFile, sr_target: int = 22050) -> Tuple[np.ndarray, int]:
     """Load audio file using soundfile only (no librosa)."""
     try:
         contents = await file.read()

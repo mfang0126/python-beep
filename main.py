@@ -4,6 +4,9 @@ import numpy as np
 import soundfile as sf
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.openapi.docs import get_swagger_ui_html
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import HTMLResponse
 from pydantic import BaseModel, Field
 from typing import List, Optional, Any, Tuple
 from scipy.signal import correlate
@@ -22,7 +25,9 @@ from routes.cross_correlation import cross_correlation_detection
 app = FastAPI(
     title="Audio Beep Detection API",
     description="Lightweight beep detection using cross-correlation",
-    version="1.0.0"
+    version="1.0.0",
+    docs_url="/docs",  # Swagger UI at /docs
+    redoc_url="/redoc"  # ReDoc at /redoc
 )
 
 # 添加 CORS 中间件
@@ -39,6 +44,35 @@ load_dotenv()
 
 # 获取配置
 settings = get_settings()
+
+# Static files for Swagger UI
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+# Custom Swagger UI endpoint for Vercel (port 80/443)
+@app.get("/swagger", response_class=HTMLResponse)
+async def custom_swagger_ui():
+    """Custom Swagger UI endpoint optimized for Vercel deployment"""
+    return get_swagger_ui_html(
+        openapi_url="/openapi.json",
+        title="Audio Beep Detection API - Swagger UI",
+        oauth2_redirect_url="/docs/oauth2-redirect",
+        swagger_js_url="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui-bundle.js",
+        swagger_css_url="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui.css",
+        swagger_favicon_url="https://fastapi.tiangolo.com/img/favicon.png",
+    )
+
+# Static Swagger UI page (for better Vercel compatibility)
+@app.get("/swagger-static", response_class=HTMLResponse)
+async def static_swagger_ui():
+    """Static Swagger UI page for Vercel deployment"""
+    with open("static/swagger.html", "r", encoding="utf-8") as f:
+        return HTMLResponse(content=f.read())
+
+# OpenAPI JSON endpoint
+@app.get("/openapi.json", include_in_schema=False)
+async def get_openapi():
+    """Return OpenAPI specification"""
+    return app.openapi()
 
 # 2. 定义响应模型
 class HealthResponse(BaseModel):
@@ -149,7 +183,23 @@ async def detect_cross_correlation_beeps(
 @app.get("/")
 async def root():
     """根路径重定向到健康检查"""
-    return {"status": "Audio Processing API is running!", "endpoints": ["/health", "/detect-cross-correlation/"]}
+    return {
+        "status": "Audio Processing API is running!", 
+        "endpoints": [
+            "/health", 
+            "/detect-cross-correlation/",
+            "/docs", 
+            "/swagger", 
+            "/swagger-static",
+            "/redoc",
+            "/openapi.json"
+        ],
+        "documentation": {
+            "swagger_ui": "/docs or /swagger or /swagger-static",
+            "redoc": "/redoc",
+            "openapi_spec": "/openapi.json"
+        }
+    }
 
 if __name__ == "__main__":
     import uvicorn
